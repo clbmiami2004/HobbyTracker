@@ -58,6 +58,9 @@
                                                 <constraint firstItem="x4l-tL-a1P" firstAttribute="centerY" secondItem="sJJ-bq-htI" secondAttribute="centerY" id="JCY-ke-Asi"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="7ZD-K0-C0P" kind="show" id="dT4-MJ-NIi"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -161,7 +164,70 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E8G-gb-Eez" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1094" y="740"/>
+            <point key="canvasLocation" x="1152" y="429"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="4dJ-yf-0oL">
+            <objects>
+                <viewController id="7ZD-K0-C0P" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ABf-U8-kio">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4SU-tI-DqF">
+                                <rect key="frame" x="347" y="160" width="47" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hometown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Hd-vr-iLu">
+                                <rect key="frame" x="311" y="189" width="83" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Avatar" translatesAutoresizingMaskIntoConstraints="NO" id="zsC-Zf-VmW">
+                                <rect key="frame" x="20" y="160" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="zsC-Zf-VmW" secondAttribute="height" multiplier="1:1" id="1u2-d1-6FO"/>
+                                    <constraint firstAttribute="width" constant="150" id="dKM-au-WC8"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hobbies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="61g-XF-8go">
+                                <rect key="frame" x="20" y="340" width="95" height="32"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="list of Hobbies" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cdk-DT-u0r">
+                                <rect key="frame" x="20" y="392" width="374" height="450"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4Hd-vr-iLu" firstAttribute="top" secondItem="4SU-tI-DqF" secondAttribute="bottom" constant="8" id="G0O-WH-2Js"/>
+                            <constraint firstItem="cdk-DT-u0r" firstAttribute="top" secondItem="61g-XF-8go" secondAttribute="bottom" constant="20" id="HUZ-9u-Gd6"/>
+                            <constraint firstItem="qh6-Of-Xdu" firstAttribute="trailing" secondItem="4SU-tI-DqF" secondAttribute="trailing" constant="20" id="N2e-zA-u2U"/>
+                            <constraint firstItem="cdk-DT-u0r" firstAttribute="trailing" secondItem="4SU-tI-DqF" secondAttribute="trailing" id="RV9-aJ-K4E"/>
+                            <constraint firstItem="zsC-Zf-VmW" firstAttribute="leading" secondItem="qh6-Of-Xdu" secondAttribute="leading" constant="20" id="Rvq-Jx-P2w"/>
+                            <constraint firstItem="4Hd-vr-iLu" firstAttribute="trailing" secondItem="4SU-tI-DqF" secondAttribute="trailing" id="SPN-JE-GUH"/>
+                            <constraint firstItem="4Hd-vr-iLu" firstAttribute="trailing" secondItem="4SU-tI-DqF" secondAttribute="trailing" id="Ydm-22-tXH"/>
+                            <constraint firstItem="4SU-tI-DqF" firstAttribute="top" secondItem="qh6-Of-Xdu" secondAttribute="top" constant="20" id="fI6-ug-QdU"/>
+                            <constraint firstItem="zsC-Zf-VmW" firstAttribute="top" secondItem="4SU-tI-DqF" secondAttribute="top" id="jHx-tg-2fr"/>
+                            <constraint firstItem="61g-XF-8go" firstAttribute="leading" secondItem="zsC-Zf-VmW" secondAttribute="leading" id="lLK-SA-VVC"/>
+                            <constraint firstItem="qh6-Of-Xdu" firstAttribute="bottom" secondItem="cdk-DT-u0r" secondAttribute="bottom" constant="20" id="oYf-Yb-BsP"/>
+                            <constraint firstItem="cdk-DT-u0r" firstAttribute="leading" secondItem="61g-XF-8go" secondAttribute="leading" id="y9K-SG-RWP"/>
+                            <constraint firstItem="61g-XF-8go" firstAttribute="top" secondItem="zsC-Zf-VmW" secondAttribute="bottom" constant="30" id="zIl-Xo-bBp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qh6-Of-Xdu"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TS1-L9-PR4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1150.7246376811595" y="1125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uml-xC-8Ga">
@@ -182,4 +248,7 @@
             <point key="canvasLocation" x="-433" y="740"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Avatar" width="225" height="225"/>
+    </resources>
 </document>
