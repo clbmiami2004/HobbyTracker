@@ -43,6 +43,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17000C8A233C50FC00605596 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				17FB781C233464C5002C292E /* FriendsTableViewController.swift */,
+				17000C84233C4F8800605596 /* FriendDetailViewController.swift */,
+				17000C82233C4F6D00605596 /* AddFriendViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		17000C8B233C516700605596 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				17000C88233C4FE300605596 /* Friend.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		17000C8C233C518200605596 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				17000C86233C4FC800605596 /* FriendTableViewCell.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
 		17FB780E233464C5002C292E = {
 			isa = PBXGroup;
 			children = (
@@ -63,11 +89,9 @@
 			isa = PBXGroup;
 			children = (
 				17FB781A233464C5002C292E /* AppDelegate.swift */,
-				17FB781C233464C5002C292E /* FriendsTableViewController.swift */,
-				17000C88233C4FE300605596 /* Friend.swift */,
-				17000C84233C4F8800605596 /* FriendDetailViewController.swift */,
-				17000C86233C4FC800605596 /* FriendTableViewCell.swift */,
-				17000C82233C4F6D00605596 /* AddFriendViewController.swift */,
+				17000C8B233C516700605596 /* Model */,
+				17000C8C233C518200605596 /* Custom Views */,
+				17000C8A233C50FC00605596 /* ViewControllers */,
 				17FB781E233464C5002C292E /* Main.storyboard */,
 				17FB7821233464CA002C292E /* Assets.xcassets */,
 				17FB7823233464CA002C292E /* LaunchScreen.storyboard */,
