@@ -34,11 +34,15 @@ extension FriendsTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        //Asking for the cell to show and use.
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as? FriendTableViewCell else {
             fatalError()
         }
         
-        let friend = friends[indexPath.row]
+        let friend = friends[indexPath.row] // Getting a friend from the list of friends. Associating from the array Friend to the cell friend below.
+        
+        cell.friend = friend //Assigning friend to the cell.
         
         //Use cell here
         return cell

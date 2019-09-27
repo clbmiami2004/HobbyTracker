@@ -59,6 +59,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="hobbyCountLabel" destination="x4l-tL-a1P" id="7JM-ES-Nd1"/>
+                                            <outlet property="hometownLabel" destination="KGH-cR-Yvb" id="v28-Qq-nb5"/>
+                                            <outlet property="nameLabel" destination="XzR-3j-Goc" id="m3v-ib-3LZ"/>
                                             <segue destination="7ZD-K0-C0P" kind="show" id="dT4-MJ-NIi"/>
                                         </connections>
                                     </tableViewCell>
