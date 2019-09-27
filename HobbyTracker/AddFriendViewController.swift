@@ -65,3 +65,30 @@ class AddFriendViewController: UIViewController {
     //FIXME: The keyboard doesn't go away automatically.
 
 }
+
+//MARK: - Text Field Delegate
+
+//Adding the return key as a new line on the view controller.
+
+extension AddFriendViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let text = textField.text, !text.isEmpty {
+            switch textField {
+            case nameTextField:
+                hometownTextField.becomeFirstResponder()
+            case hometownTextField:
+                hobby1TextField.becomeFirstResponder()
+            case hobby1TextField:
+                hobby2TextField.becomeFirstResponder()
+            case hobby2TextField:
+                hobby3TextField.becomeFirstResponder()
+            default:
+                textField.resignFirstResponder() //This will hide the keyboard.
+            }
+            
+        }else {
+            view.endEditing(false) //Stop editing and hide the keyboard.
+        }
+        return false
+    }
+}
