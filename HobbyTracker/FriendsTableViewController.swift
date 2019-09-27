@@ -17,16 +17,19 @@ class FriendsTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        friends.append(Friend(name: "Person A", hometown: "Los Angeles", hobbies: ["A", "B"]))
-        friends.append(Friend(name: "Person B", hometown: "San Diego", hobbies: ["A", "B"]))
-        friends.append(Friend(name: "Person C", hometown: "New York", hobbies: ["A", "B", "C"]))
-        friends.append(Friend(name: "Person D", hometown: "Seattle", hobbies: ["A", "B"]))
-        friends.append(Friend(name: "Person E", hometown: "Tokio", hobbies: ["A", "B", "C"]))
     }
 
-    
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddFriendModelSegue" {
+            guard let addFriendVC = segue.destination as? AddFriendViewController else {fatalError()}
+            
+            addFriendVC.delegate = self
+        }
+    }
 }
+
+//MARK: - Table View Data Source
+//Adding an extension for the UITableViewDatSource
 
 extension FriendsTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,4 +53,16 @@ extension FriendsTableViewController: UITableViewDataSource {
     }
     
     
+}
+
+
+//MARK: - Add Friend Delegate
+
+extension FriendsTableViewController: addFriendDelegate {
+    func friendWasCreated(_ friend: Friend) {
+        friends.append(friend)
+        tableView.reloadData()
+        dismiss(animated: true, completion: nil)
+        //TODO: Implement delegate method here!
+    }
 }

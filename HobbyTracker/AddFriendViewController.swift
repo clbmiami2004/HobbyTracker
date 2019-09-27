@@ -8,23 +8,60 @@
 
 import UIKit
 
+protocol addFriendDelegate { // This is to let our first view controller that a new friend has been added.
+    func friendWasCreated(_ friend: Friend)
+}
+
 class AddFriendViewController: UIViewController {
 
+    @IBOutlet weak var nameTextField: UITextField! //Make sure to name the field as the type in order to be able to read the code better.
+    
+    @IBOutlet weak var hometownTextField: UITextField!
+    @IBOutlet weak var hobby1TextField: UITextField!
+    @IBOutlet weak var hobby2TextField: UITextField!
+    @IBOutlet weak var hobby3TextField: UITextField!
+    
+    //Adding a delegte property associated with the addFriendDelegate:
+    var delegate: addFriendDelegate?
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+ 
+    @IBAction func cancelOperation(_ sender: UIBarButtonItem) {
+        
+        dismiss(animated: true, completion: nil)
     }
-    */
+    
+    @IBAction func saveFriend(_ sender: UIBarButtonItem) {
+        
+        guard let name = nameTextField.text, !name.isEmpty, //name not empty
+            let hometown = hometownTextField.text, !hometown.isEmpty else {return}
+        
+        var friend = Friend(name: name, hometown: hometown)
+        
+        //Checking each of the individual hobby textFields to se if we can add that hobby to our list of friends.
+        
+        if let hobby1 = hobby1TextField.text, !hobby1.isEmpty {
+            friend.hobbies.append(hobby1)
+        }
+        
+        if let hobby2 = hobby2TextField.text, !hobby2.isEmpty {
+            friend.hobbies.append(hobby2)
+        }
+        
+        if let hobby3 = hobby3TextField.text, !hobby3.isEmpty {
+            friend.hobbies.append(hobby3)
+        }
+            
+        
+        delegate?.friendWasCreated(friend)
+    }
+    
+    //FIXME: The keyboard doesn't go away automatically.
 
 }
