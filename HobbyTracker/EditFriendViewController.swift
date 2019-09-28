@@ -10,9 +10,10 @@ import UIKit
 
 protocol addFriendDelegate { // This is to let our first view controller that a new friend has been added.
     func friendWasCreated(_ friend: Friend)
+    func friend(_ oldFriend: Friend, wasUpdated newFriend: Friend)
 }
 
-class AddFriendViewController: UIViewController {
+class EditFriendViewController: UIViewController {
 
     @IBOutlet weak var nameTextField: UITextField! //Make sure to name the field as the type in order to be able to read the code better.
     
@@ -24,13 +25,40 @@ class AddFriendViewController: UIViewController {
     //Adding a delegte property associated with the addFriendDelegate:
     var delegate: addFriendDelegate?
     
+    var oldFriend: Friend?
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        updateViews()
     }
+    
+//MARK: - THis is how we update an old friend from the list, ej: chaging hobby or address.
+    
+    func updateViews() {
+        guard let oldFriend = oldFriend else {
+            return
+        }
+        
+        nameTextField.text = oldFriend.name
+        hometownTextField.text = oldFriend.hometown
+        
+        if oldFriend.hobbies.count > 0 {
+            hobby1TextField.text = oldFriend.hobbies[0]
+            
+            if oldFriend.hobbies.count > 1 {
+                hobby2TextField.text = oldFriend.hobbies[1]
+                
+                if oldFriend.hobbies.count > 2 {
+                    hobby3TextField.text = oldFriend.hobbies[2]
+                }
+            }
+        }
+    }
+    
+    
  
     @IBAction func cancelOperation(_ sender: UIBarButtonItem) {
         
@@ -58,8 +86,12 @@ class AddFriendViewController: UIViewController {
             friend.hobbies.append(hobby3)
         }
             
-        
+//Here if we're not updating, then we're creating a new friend.
+        if let oldFriend = oldFriend {
+            
+        }else {
         delegate?.friendWasCreated(friend)
+        }
     }
     
     //FIXME: The keyboard doesn't go away automatically.
@@ -70,7 +102,7 @@ class AddFriendViewController: UIViewController {
 
 //Adding the return key as a new line on the view controller.
 
-extension AddFriendViewController: UITextFieldDelegate {
+extension EditFriendViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let text = textField.text, !text.isEmpty {
             switch textField {

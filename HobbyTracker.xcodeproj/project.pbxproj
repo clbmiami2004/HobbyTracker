@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		17000C83233C4F6D00605596 /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17000C82233C4F6D00605596 /* AddFriendViewController.swift */; };
+		17000C83233C4F6D00605596 /* EditFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17000C82233C4F6D00605596 /* EditFriendViewController.swift */; };
 		17000C85233C4F8800605596 /* FriendDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17000C84233C4F8800605596 /* FriendDetailViewController.swift */; };
 		17000C87233C4FC800605596 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17000C86233C4FC800605596 /* FriendTableViewCell.swift */; };
 		17000C89233C4FE300605596 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17000C88233C4FE300605596 /* Friend.swift */; };
@@ -19,7 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		17000C82233C4F6D00605596 /* AddFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
+		17000C82233C4F6D00605596 /* EditFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFriendViewController.swift; sourceTree = "<group>"; };
 		17000C84233C4F8800605596 /* FriendDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDetailViewController.swift; sourceTree = "<group>"; };
 		17000C86233C4FC800605596 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 		17000C88233C4FE300605596 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 			children = (
 				17FB781C233464C5002C292E /* FriendsTableViewController.swift */,
 				17000C84233C4F8800605596 /* FriendDetailViewController.swift */,
-				17000C82233C4F6D00605596 /* AddFriendViewController.swift */,
+				17000C82233C4F6D00605596 /* EditFriendViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -171,7 +171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17000C83233C4F6D00605596 /* AddFriendViewController.swift in Sources */,
+				17000C83233C4F6D00605596 /* EditFriendViewController.swift in Sources */,
 				17FB781D233464C5002C292E /* FriendsTableViewController.swift in Sources */,
 				17000C87233C4FC800605596 /* FriendTableViewCell.swift in Sources */,
 				17000C89233C4FE300605596 /* Friend.swift in Sources */,

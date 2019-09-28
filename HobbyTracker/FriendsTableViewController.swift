@@ -13,6 +13,7 @@ class FriendsTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var friends: [Friend] = []
+    var indexPathforTappedAccessoryButton: IndexPath?
     
     
 //MARK: - Returning the URL where we're going to save the document "Story of our friends".
@@ -61,16 +62,25 @@ class FriendsTableViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "AddFriendModelSegue":
-       
-            guard let addFriendVC = segue.destination as? AddFriendViewController else {fatalError()}
+            guard let addFriendVC = segue.destination as? EditFriendViewController else {fatalError()}
             
             addFriendVC.delegate = self
-        case "ShowFriendDetailSegue":
+        case "UpdateFriendModelSegue":
+            guard let indexPath = indexPathforTappedAccessoryButton,
+                let editFriendVC = segue.destination as?
+                EditFriendViewController else {
+                fatalError()}
             
+            //It'll let us know when the user is finished editing.
+            editFriendVC.delegate = self
+            //Us telling it what the old friend was that it needs to be editing.
+            editFriendVC.oldFriend = friends[indexPath.row]
+            
+        case "ShowFriendDetailSegue":
             guard let indexPath = tableView.indexPathForSelectedRow, let friendDetailVC = segue.destination as? FriendDetailViewController else {fatalError()}
             
             friendDetailVC.friend = friends[indexPath.row]
-        
+            
         default:
             fatalError("An unknown segue was encountered: \(segue.identifier ?? "<No ID>")")
             //We're printing the segue idientifier, and if there's no identifier, then print "No ID."
@@ -79,6 +89,8 @@ class FriendsTableViewController: UIViewController {
         
     }
 }
+            
+       
 
 //MARK: - Table View Data Source
 //Adding an extension for the UITableViewDatSource
@@ -121,6 +133,16 @@ extension FriendsTableViewController: UITableViewDelegate  {
         
         save()
     }
+    
+    //This is going to be called anytime the iButton is tapped and it's going to let us knnow which row was tapped.
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        
+        indexPathforTappedAccessoryButton = indexPath
+        
+        performSegue(withIdentifier: "UpdateFriendModelSegue", sender: self)
+        
+        
+    }
 }
 
 //MARK: - Add Friend Delegate
@@ -134,4 +156,14 @@ extension FriendsTableViewController: addFriendDelegate {
         
         save()
     }
+    
+    func friend(_ oldFriend: Friend, wasUpdated newFriend: Friend) {
+        guard let indexPath = indexPathforTappedAccessoryButton else {return}
+        friends[indexPath.row] = newFriend
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+        dismiss(animated: true, completion: nil)
+        
+        save()
+    }
+    
 }

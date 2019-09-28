@@ -20,11 +20,11 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FriendCell" id="IfN-SR-cn7" customClass="FriendTableViewCell" customModule="HobbyTracker" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FriendCell" id="IfN-SR-cn7" customClass="FriendTableViewCell" customModule="HobbyTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IfN-SR-cn7" id="sJJ-bq-htI">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="350.5" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Wmx-2t-Wmv">
@@ -45,7 +45,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# of hobbies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4l-tL-a1P">
-                                                    <rect key="frame" x="298" y="11.5" width="96" height="20.5"/>
+                                                    <rect key="frame" x="246.5" y="11.5" width="96" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -90,16 +90,17 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="2NJ-1Z-guP" id="gZ4-eN-DT1"/>
+                        <segue destination="MH7-Ot-d5k" kind="presentation" identifier="UpdateFriendModelSegue" id="d5N-Xq-yig"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="277" y="740"/>
         </scene>
-        <!--Add Friend View Controller-->
+        <!--Edit Friend View Controller-->
         <scene sceneID="KGc-YP-Jad">
             <objects>
-                <viewController id="MH7-Ot-d5k" customClass="AddFriendViewController" customModule="HobbyTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MH7-Ot-d5k" customClass="EditFriendViewController" customModule="HobbyTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F9H-rK-AB7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -291,4 +292,7 @@
     <resources>
         <image name="Avatar" width="225" height="225"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="d5N-Xq-yig"/>
+    </inferredMetricsTieBreakers>
 </document>
