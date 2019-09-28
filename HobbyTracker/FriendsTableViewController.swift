@@ -13,12 +13,51 @@ class FriendsTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var friends: [Friend] = []
+    
+    
+//MARK: - Returning the URL where we're going to save the document "Story of our friends".
+    
+    //By putting the exclamation mark we're saying that this will never be nil.
+    var persistentStoreURL: URL! {
+        
+        if let documentURL = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true) {
+            let persistentStoreURL = documentURL.appendingPathComponent("friendsList.plist")
+            
+            return persistentStoreURL
+        }
+        
+        return nil
 
+    }
+
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Now we load from the file in order to save from the file.
+        
+        if let data = try? Data(contentsOf: persistentStoreURL),
+            let savedFriends = try? PropertyListDecoder().decode([Friend].self, from: data) {
+            
+            friends = savedFriends
+        }
+        
     }
 
+    
+//MARK: - Saving Friends.
+    func save() {
+        if let data = try? PropertyListEncoder().encode(friends) {
+            try? data.write(to: persistentStoreURL)
+        }
+    }
+
+    
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "AddFriendModelSegue":
@@ -79,6 +118,8 @@ extension FriendsTableViewController: UITableViewDelegate  {
         friends.remove(at: indexPath.row)
         
         tableView.deleteRows(at: [indexPath], with: .automatic)
+        
+        save()
     }
 }
 
@@ -90,5 +131,7 @@ extension FriendsTableViewController: addFriendDelegate {
         tableView.reloadData()
         dismiss(animated: true, completion: nil)
         //TODO: Implement delegate method here!
+        
+        save()
     }
 }

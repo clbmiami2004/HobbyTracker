@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Friend {
+struct Friend: Codable {  //Codable in order To make the app able to save information within. Images not allowed with this method.
     let name: String
     let hometown: String
     var hobbies: [String] = []
