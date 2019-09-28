@@ -62,7 +62,7 @@
                                             <outlet property="hobbyCountLabel" destination="x4l-tL-a1P" id="7JM-ES-Nd1"/>
                                             <outlet property="hometownLabel" destination="KGH-cR-Yvb" id="v28-Qq-nb5"/>
                                             <outlet property="nameLabel" destination="XzR-3j-Goc" id="m3v-ib-3LZ"/>
-                                            <segue destination="7ZD-K0-C0P" kind="show" id="dT4-MJ-NIi"/>
+                                            <segue destination="7ZD-K0-C0P" kind="show" identifier="ShowFriendDetailSegue" id="dT4-MJ-NIi"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -200,10 +200,10 @@
             </objects>
             <point key="canvasLocation" x="1152" y="429"/>
         </scene>
-        <!--View Controller-->
+        <!--Friend Detail View Controller-->
         <scene sceneID="4dJ-yf-0oL">
             <objects>
-                <viewController id="7ZD-K0-C0P" sceneMemberID="viewController">
+                <viewController id="7ZD-K0-C0P" customClass="FriendDetailViewController" customModule="HobbyTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ABf-U8-kio">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -258,6 +258,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qh6-Of-Xdu"/>
                     </view>
+                    <connections>
+                        <outlet property="hobbyListTextView" destination="cdk-DT-u0r" id="iCQ-gH-ent"/>
+                        <outlet property="hometownLabel" destination="4Hd-vr-iLu" id="oc1-o8-KPO"/>
+                        <outlet property="nameLabel" destination="4SU-tI-DqF" id="c6K-VW-eao"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TS1-L9-PR4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

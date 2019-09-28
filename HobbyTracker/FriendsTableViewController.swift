@@ -20,11 +20,24 @@ class FriendsTableViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AddFriendModelSegue" {
+        switch segue.identifier {
+        case "AddFriendModelSegue":
+       
             guard let addFriendVC = segue.destination as? AddFriendViewController else {fatalError()}
             
             addFriendVC.delegate = self
+        case "ShowFriendDetailSegue":
+            
+            guard let indexPath = tableView.indexPathForSelectedRow, let friendDetailVC = segue.destination as? FriendDetailViewController else {fatalError()}
+            
+            friendDetailVC.friend = friends[indexPath.row]
+        
+        default:
+            fatalError("An unknown segue was encountered: \(segue.identifier ?? "<No ID>")")
+            //We're printing the segue idientifier, and if there's no identifier, then print "No ID."
         }
+        
+        
     }
 }
 
